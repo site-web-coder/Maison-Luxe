@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maison Luxe — Dior Beauty Collection</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- NAV OVERLAY -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-main">MAISON LUXE</span>
+      <span class="logo-sub">BEAUTY</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="nav-link" data-text="Home">Home</a>
+      <a href="#collection" class="nav-link" data-text="Collection">Collection</a>
+      <a href="#editorial" class="nav-link" data-text="Editorial">Editorial</a>
+      <a href="#about" class="nav-link" data-text="About">About</a>
+      <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-nav">
+      <a href="#" onclick="closeMobileMenu()">Home</a>
+      <a href="#collection" onclick="closeMobileMenu()">Collection</a>
+      <a href="#editorial" onclick="closeMobileMenu()">Editorial</a>
+      <a href="#about" onclick="closeMobileMenu()">About</a>
+      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1590156206657-aec9e7de4b65?q=80&w=1800&auto=format&fit=crop" alt="Luxury makeup" class="hero-img"/>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Dior Beauty — SS 2025</p>
+      <h1 class="hero-title">
+        <span class="line">The Art of</span>
+        <span class="line italic">Luxury Beauty</span>
+      </h1>
+      <p class="hero-desc">Where haute couture meets cosmetic excellence. Discover the collection that defines modern elegance.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToCollection()">Explore Collection</button>
+        <button class="btn-ghost" onclick="scrollToEditorial()">Our Story</button>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">72</span><span class="stat-label">Years of Elegance</span></div>
+      <div class="stat"><span class="stat-num">130+</span><span class="stat-label">Countries Worldwide</span></div>
+      <div class="stat"><span class="stat-num">5M+</span><span class="stat-label">Happy Clients</span></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE BANNER -->
+  <div class="marquee-banner">
+    <div class="marquee-track">
+      <span>Dior Beauty</span><span class="dot">◆</span>
+      <span>Haute Couture</span><span class="dot">◆</span>
+      <span>Paris Collection</span><span class="dot">◆</span>
+      <span>Timeless Elegance</span><span class="dot">◆</span>
+      <span>Luxury Cosmetics</span><span class="dot">◆</span>
+      <span>Dior Beauty</span><span class="dot">◆</span>
+      <span>Haute Couture</span><span class="dot">◆</span>
+      <span>Paris Collection</span><span class="dot">◆</span>
+      <span>Timeless Elegance</span><span class="dot">◆</span>
+      <span>Luxury Cosmetics</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- COLLECTION -->
+  <section class="collection" id="collection">
+    <div class="section-header">
+      <p class="section-eyebrow">— Our Curated Edit</p>
+      <h2 class="section-title">Featured Collection</h2>
+      <p class="section-desc">Handpicked from Dior's finest, each piece a masterwork of artisanal beauty.</p>
+    </div>
+
+    <!-- FILTER TABS -->
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="lips">Lips</button>
+      <button class="filter-btn" data-filter="face">Face</button>
+      <button class="filter-btn" data-filter="eyes">Eyes</button>
+      <button class="filter-btn" data-filter="sets">Sets</button>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+
+      <!-- PRODUCT CARDS -->
+      <div class="product-card" data-category="lips">
+        <div class="product-badge">Bestseller</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1631730486572-226f51f1e0f2?q=80&w=800&auto=format&fit=crop" alt="Dior Rouge Dior" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Rouge Dior Lipstick', 52, 'Lips', 'https://images.unsplash.com/photo-1631730486572-226f51f1e0f2?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Lips</span>
+            <div class="product-rating">★★★★★ <span>(248)</span></div>
+          </div>
+          <h3>Rouge Dior Lipstick</h3>
+          <p class="product-desc-short">Satin-finish couture colour with botanical lip care</p>
+          <div class="product-swatches">
+            <span class="swatch" style="background:#c0392b" title="Rouge 999"></span>
+            <span class="swatch" style="background:#e8b4b8" title="Rose Bonheur"></span>
+            <span class="swatch" style="background:#8b3a62" title="Orchid"></span>
+            <span class="swatch" style="background:#d4815a" title="Coral"></span>
+          </div>
+          <div class="product-footer">
+            <span class="price">$52</span>
+            <button class="add-btn" onclick="addToCart('Rouge Dior Lipstick', 52, 'Lips', 'https://images.unsplash.com/photo-1631730486572-226f51f1e0f2?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="face">
+        <div class="product-badge new">New</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" alt="Dior Forever Foundation" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Dior Forever Foundation', 68, 'Face', 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Face</span>
+            <div class="product-rating">★★★★★ <span>(512)</span></div>
+          </div>
+          <h3>Dior Forever Foundation</h3>
+          <p class="product-desc-short">24H wear, breathable, full coverage matte perfection</p>
+          <div class="product-swatches">
+            <span class="swatch" style="background:#f5deb3" title="1N"></span>
+            <span class="swatch" style="background:#deb887" title="2N"></span>
+            <span class="swatch" style="background:#c8a27a" title="3N"></span>
+            <span class="swatch" style="background:#a0785a" title="4N"></span>
+          </div>
+          <div class="product-footer">
+            <span class="price">$68</span>
+            <button class="add-btn" onclick="addToCart('Dior Forever Foundation', 68, 'Face', 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="eyes">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop" alt="Dior 5 Couleurs Palette" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Dior 5 Couleurs Palette', 82, 'Eyes', 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Eyes</span>
+            <div class="product-rating">★★★★★ <span>(187)</span></div>
+          </div>
+          <h3>Dior 5 Couleurs Palette</h3>
+          <p class="product-desc-short">Couture eyeshadow palette — blendable, buildable, limitless</p>
+          <div class="product-swatches">
+            <span class="swatch" style="background:#c4a882" title="Nude"></span>
+            <span class="swatch" style="background:#8b6358" title="Rose Wood"></span>
+            <span class="swatch" style="background:#2c2c2c" title="Smoky"></span>
+          </div>
+          <div class="product-footer">
+            <span class="price">$82</span>
+            <button class="add-btn" onclick="addToCart('Dior 5 Couleurs Palette', 82, 'Eyes', 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="face">
+        <div class="product-badge">Editor's Pick</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop" alt="Dior Backstage Blush" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Dior Backstage Blush', 48, 'Face', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Face</span>
+            <div class="product-rating">★★★★☆ <span>(94)</span></div>
+          </div>
+          <h3>Dior Backstage Blush</h3>
+          <p class="product-desc-short">Buildable colour with a natural-looking flush of radiance</p>
+          <div class="product-swatches">
+            <span class="swatch" style="background:#e8a0a0" title="Pink"></span>
+            <span class="swatch" style="background:#f4b8a0" title="Peach"></span>
+            <span class="swatch" style="background:#c97d7d" title="Rose"></span>
+          </div>
+          <div class="product-footer">
+            <span class="price">$48</span>
+            <button class="add-btn" onclick="addToCart('Dior Backstage Blush', 48, 'Face', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="lips">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?q=80&w=800&auto=format&fit=crop" alt="Dior Addict Lip Glow" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Dior Addict Lip Glow', 42, 'Lips', 'https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Lips</span>
+            <div class="product-rating">★★★★★ <span>(376)</span></div>
+          </div>
+          <h3>Dior Addict Lip Glow</h3>
+          <p class="product-desc-short">Colour-reviving lip balm — custom colour, extreme glow</p>
+          <div class="product-swatches">
+            <span class="swatch" style="background:#ffb5b5" title="Pink"></span>
+            <span class="swatch" style="background:#ff9e80" title="Coral"></span>
+            <span class="swatch" style="background:#e75480" title="Berry"></span>
+          </div>
+          <div class="product-footer">
+            <span class="price">$42</span>
+            <button class="add-btn" onclick="addToCart('Dior Addict Lip Glow', 42, 'Lips', 'https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="eyes">
+        <div class="product-badge new">Limited</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1583241475880-083f84372725?q=80&w=800&auto=format&fit=crop" alt="Dior Diorshow Mascara" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Diorshow Mascara', 36, 'Eyes', 'https://images.unsplash.com/photo-1583241475880-083f84372725?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Eyes</span>
+            <div class="product-rating">★★★★★ <span>(421)</span></div>
+          </div>
+          <h3>Diorshow Mascara</h3>
+          <p class="product-desc-short">Volume-multiplying formula for runway-worthy lashes</p>
+          <div class="product-swatches">
+            <span class="swatch" style="background:#1a1a1a" title="Black"></span>
+            <span class="swatch" style="background:#2b1a3d" title="Plum Black"></span>
+          </div>
+          <div class="product-footer">
+            <span class="price">$36</span>
+            <button class="add-btn" onclick="addToCart('Diorshow Mascara', 36, 'Eyes', 'https://images.unsplash.com/photo-1583241475880-083f84372725?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="sets">
+        <div class="product-badge">Value Set</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=800&auto=format&fit=crop" alt="Dior Beauty Set" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Dior Beauty Essentials Set', 145, 'Sets', 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Sets</span>
+            <div class="product-rating">★★★★★ <span>(63)</span></div>
+          </div>
+          <h3>Dior Beauty Essentials Set</h3>
+          <p class="product-desc-short">Lip glow + foundation + blush — the complete glow ritual</p>
+          <div class="product-footer">
+            <span class="price">$145 <s class="price-old">$158</s></span>
+            <button class="add-btn" onclick="addToCart('Dior Beauty Essentials Set', 145, 'Sets', 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="face">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=800&auto=format&fit=crop" alt="Dior Highlighter" loading="lazy"/>
+          <div class="product-hover-overlay">
+            <button class="quick-add" onclick="addToCart('Dior Backstage Glow Face Palette', 56, 'Face', 'https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=200&auto=format&fit=crop')">+ Quick Add</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-cat">Face</span>
+            <div class="product-rating">★★★★★ <span>(139)</span></div>
+          </div>
+          <h3>Backstage Glow Face Palette</h3>
+          <p class="product-desc-short">Highlighting palette for an otherworldly radiant finish</p>
+          <div class="product-swatches">
+            <span class="swatch" style="background:#f9e4b7" title="Gold"></span>
+            <span class="swatch" style="background:#f4d6d6" title="Rose Gold"></span>
+          </div>
+          <div class="product-footer">
+            <span class="price">$56</span>
+            <button class="add-btn" onclick="addToCart('Dior Backstage Glow Face Palette', 56, 'Face', 'https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=200&auto=format&fit=crop')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDITORIAL SECTION -->
+  <section class="editorial" id="editorial">
+    <div class="editorial-inner">
+      <div class="editorial-text">
+        <p class="section-eyebrow">— The Maison Luxe Edit</p>
+        <h2>Beauty is not a<br/><em>privilege.</em><br/>It's a language.</h2>
+        <p>For over seven decades, Dior has spoken the language of beauty fluently — with precision, poetry, and passion. Our curated collection brings the finest of this heritage directly to you.</p>
+        <button class="btn-primary" onclick="scrollToCollection()">Shop the Edit</button>
+      </div>
+      <div class="editorial-images">
+        <div class="ed-img ed-img-1">
+          <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop" alt="Editorial 1"/>
+        </div>
+        <div class="ed-img ed-img-2">
+          <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=600&auto=format&fit=crop" alt="Editorial 2"/>
+        </div>
+        <div class="ed-quote">"Beauty begins the moment you decide to be yourself." <em>— Christian Dior</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-visual">
+        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?q=80&w=900&auto=format&fit=crop" alt="About Maison Luxe"/>
+        <div class="about-badge">Est. 1946 — Paris</div>
+      </div>
+      <div class="about-text">
+        <p class="section-eyebrow">— Our Story</p>
+        <h2>A Heritage of<br/>Artisanal Beauty</h2>
+        <p>Maison Luxe was founded on the belief that beauty is the highest form of expression. We partner exclusively with Dior's most celebrated lines to bring you an unparalleled cosmetics experience.</p>
+        <p>Every product in our collection is hand-selected by our beauty editors — tested, vetted, and chosen for its ability to transform not just your appearance, but how you carry yourself through the world.</p>
+        <div class="about-values">
+          <div class="value-item">
+            <span class="value-icon">✦</span>
+            <div>
+              <h4>100% Authentic</h4>
+              <p>Direct from Dior's official distributors</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">✦</span>
+            <div>
+              <h4>Free Worldwide Shipping</h4>
+              <p>On all orders above $85</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">✦</span>
+            <div>
+              <h4>Complimentary Gift Wrap</h4>
+              <p>Every order arrives in Maison Luxe packaging</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-header">
+      <p class="section-eyebrow">— Client Love</p>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The Rouge Dior is unlike anything I've worn before. The colour pays off is extraordinary and it feels like silk on my lips."</p>
+        <div class="reviewer"><div class="reviewer-avatar" style="background:#e8b4b8"></div><span>Sophia L., New York</span></div>
+      </div>
+      <div class="testimonial-card featured">
+        <div class="stars">★★★★★</div>
+        <p>"Maison Luxe curates the absolute best of Dior. Their packaging is exquisite — I gifted the essentials set and my friend was speechless."</p>
+        <div class="reviewer"><div class="reviewer-avatar" style="background:#c0bfff"></div><span>Amara K., London</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I've tried every luxury foundation and Dior Forever is the only one I come back to. The coverage is flawless without feeling heavy."</p>
+        <div class="reviewer"><div class="reviewer-avatar" style="background:#ffd6a5"></div><span>Isabelle M., Paris</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <p class="section-eyebrow light">— Stay in the Know</p>
+      <h2>The Beauty Edit,<br/><em>in Your Inbox</em></h2>
+      <p>New arrivals, exclusive offers, and beauty secrets from Paris — delivered monthly.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+        <input type="email" placeholder="Your email address" required id="newsletter-email"/>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="newsletter-note">No spam. Unsubscribe anytime. We respect your privacy.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">MAISON LUXE</div>
+        <p>Luxury beauty, curated with intention.<br/>Inspired by Dior. Delivered to your door.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05A6.34 6.34 0 003.15 15.3a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.01a8.16 8.16 0 004.76 1.52V7.08a4.85 4.85 0 01-1-.39z"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.05.52 1.9 1.55 1.9 1.86 0 3.11-2.4 3.11-5.24 0-2.15-1.46-3.75-4.1-3.75-2.99 0-4.85 2.24-4.85 4.74 0 .86.25 1.47.65 1.94.18.22.21.3.14.55-.05.18-.16.62-.2.79-.07.26-.27.35-.5.26-1.39-.57-2.04-2.1-2.04-3.82 0-2.83 2.39-6.23 7.14-6.23 3.83 0 6.35 2.78 6.35 5.76 0 3.95-2.18 6.9-5.39 6.9-1.08 0-2.09-.58-2.44-1.24l-.68 2.57c-.22.83-.68 1.66-1.09 2.31.82.25 1.68.38 2.57.38 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#collection">All Products</a>
+          <a href="#collection">Lips</a>
+          <a href="#collection">Face</a>
+          <a href="#collection">Eyes</a>
+          <a href="#collection">Gift Sets</a>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <a href="#">Shipping & Returns</a>
+          <a href="#">Product Authenticity</a>
+          <a href="#">Order Tracking</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@maisonluxe.com">hello@maisonluxe.com</a>
+          <a href="#">+971 4 555 0100</a>
+          <a href="#">Dubai, UAE</a>
+          <a href="#">Mon–Sat: 9AM–8PM</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Maison Luxe Beauty. All rights reserved. This is a concept store inspired by Dior Beauty.</p>
+      <div class="payment-icons">
+        <span>VISA</span><span>Mastercard</span><span>PayPal</span><span>Apple Pay</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h2>Your Selection <span id="cart-count-drawer">0 items</span></h2>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items-container" id="cart-items-container">
+      <div class="cart-empty" id="cart-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <p>Your cart is empty</p>
+        <button onclick="closeCart()">Continue Shopping</button>
+      </div>
+    </div>
+    <div class="cart-drawer-footer" id="cart-footer" style="display:none;">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0</span>
+      </div>
+      <div class="cart-shipping">
+        <span>Shipping</span>
+        <span id="cart-shipping-text">Free over $85</span>
+      </div>
+      <div class="cart-divider"></div>
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cart-total">$0</span>
+      </div>
+      <button class="checkout-btn" onclick="handleCheckout()">Proceed to Checkout</button>
+      <button class="continue-btn" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <!-- NOTIFICATION -->
+  <div class="notification" id="notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
